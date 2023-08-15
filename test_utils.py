@@ -104,9 +104,9 @@ class LoadDataTestCase(unittest.TestCase):
         ]
         m = mock_open(read_data=json.dumps(expected))
         with patch('utils.open', m):
-            received = utils.load_data('data.json')
+            received = utils.load_data('notes.json')
         self.assertEqual(expected, received)
-        self.assertEqual(Path(m.call_args[0][0]), Path('data/data.json'))
+        self.assertEqual(Path(m.call_args[0][0]), Path('data/notes.json'))
 
 
 @target_function('load_template')
